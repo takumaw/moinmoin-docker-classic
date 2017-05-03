@@ -3,7 +3,7 @@ MAINTAINER Takuma Watanabe <takumaw@sfo.kuramae.ne.jp>
 
 # Set environmental variables
 ENV HOME /root
-ENV WORKDIR /root
+WORKDIR /root
 
 # Setup base environment
 RUN apt update -qy && \
@@ -44,3 +44,4 @@ ADD run.sh /
 EXPOSE 443
 VOLUME ["/var/www/moin"]
 CMD ["bash", "/run.sh"]
+
