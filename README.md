@@ -10,7 +10,7 @@ $ docker run -p 8080:80 takumaw/moinmoin
 ```
 You can now access your instance via http://localhost:8080 in your browser.
 
-You can use with docker-compose, i.e.
+You can also use with docker-compose, i.e.
 
 ```
 version: '3.1'
@@ -37,7 +37,7 @@ This image has a MoinMoin setup with Nginx and uWSGI, run by supervisord.
 Image's volume folder structure is described below:
 
   * /var/www/html/
-    ... has static contents, accesible via http://HOSTNAME:PORT/FILE_PATH.
+    ... has static contents, accesible via `http://HOSTNAME:PORT/FILE_PATH`.
   * /var/www/moin/
     ... is a moinmoin instance directory.
     * config/
@@ -48,6 +48,18 @@ Image's volume folder structure is described below:
     ... is the Nginx log directory. Stores access.log and error.log.
   * /var/log/moin/
     ... is the MoinMoin log directory.
+
+URL routing is described as:
+
+  * First an url is considered as a static file; corresponding file is searched under
+    `/var/www/html/`.
+    * e.g. If you place `favicon.ico` under `/var/www/html/favicon.ico`,
+      you can access it via `http://HOSTNAME:PORT/favicon.ico`.
+  * Second, if an url is matched to `/moin_staticXXX/xxx`, files under
+    `/var/www/html/moin_static/` and
+    `/usr/local/lib/python2.7/site-packages/MoinMoin/web/static/htdocs/`
+    is searched in this order.
+  * Lastly, an url is handled as a MoinMoin page.
 
 If `/var/www/moin` is empty (e.g. it's first time to boot a container),
 the container will automatically generate a new site under this directory
