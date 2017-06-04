@@ -18,17 +18,9 @@ RUN set -ex \
 
 # Install MoinMoin
 ENV MOINMOIN_VERSION 1.9.9
-ENV MOINMOIN_SHA256 4397d7760b7ae324d7914ffeb1a9eeb15e09933b61468072acd3c3870351efa4
 
 RUN set -ex \
-		&& mkdir -p /usr/src/moin \
-		&& curl -o moin.tar.gz https://static.moinmo.in/files/moin-$MOINMOIN_VERSION.tar.gz \
-		&& echo "$MOINMOIN_SHA256 *moin.tar.gz" | sha256sum -c - \
-		&& tar -xzf moin.tar.gz -C /usr/src/moin --strip-components=1 \
-		&& rm -f moin.tar.gz \
-		&& cd /usr/src/moin \
-		&& python setup.py install --prefix=/usr/local --install-data=/usr/local \
-		&& rm -rf /usr/src/moin \
+		&& pip install --no-cache-dir "moin==$MOINMOIN_VERSION" \
 		&& mkdir -p \
 			/usr/local/etc/moin \
 			/usr/local/run/moin \
