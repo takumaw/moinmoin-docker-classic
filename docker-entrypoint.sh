@@ -20,5 +20,9 @@ chown -R www-data:www-data \
   /var/www/moin \
   /var/log/moin \
   /var/log/nginx
+chmod -R ug+rwX \
+  /var/www/moin \
+  /var/log/moin \
+  /var/log/nginx
 
 exec "$@"
