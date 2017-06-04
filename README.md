@@ -32,6 +32,8 @@ services:
 
 This image has a MoinMoin setup with Nginx and uWSGI, run by supervisord.
 
+(See also: https://moinmo.in/HowTo/NginxWithUwsgi )
+
 Image's volume folder structure is described below:
 
   * /var/www/html/
@@ -55,4 +57,4 @@ from `/usr/local/share/moin` with additional settings (done by `docker-entrypoin
     * You can create 'root' via http://localhost/LanguageSetup?action=newaccount .
   * The `instance_dir` is set to `os.path.join(wikiconfig_dir, os.pardir)`,
     which points to `/var/www/moin`.
-  * All scripts under `/var/www/moin/server` is configured to use this wiki instance. 
+  * All scripts under `/var/www/moin/server` is configured to use this wiki instance.
