@@ -59,7 +59,7 @@ URL routing is described as:
     `/var/www/html/moin_static/` and
     `/usr/local/lib/python2.7/site-packages/MoinMoin/web/static/htdocs/`
     is searched in this order.
-  * Lastly, an url is handled as a MoinMoin page.
+  * Finally, an url is handled as a MoinMoin page.
 
 If `/var/www/moin` is empty (e.g. it's first time to boot a container),
 the container will automatically generate a new site under this directory
