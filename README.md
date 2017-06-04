@@ -16,7 +16,7 @@ You can also use with docker-compose, i.e.
 version: '3.1'
 
 services:
-  wordpress:
+  moin:
     image: takumaw/moinmoin
     ports:
       - 8080:80
