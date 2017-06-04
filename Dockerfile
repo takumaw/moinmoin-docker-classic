@@ -9,7 +9,7 @@ RUN set -ex \
 		&& rm -rf /etc/nginx/sites-available/* \
 		&& rm -rf /etc/nginx/sites-enabled/*
 
-COPY nginx/default.conf /etc/nginx/conf.d
+COPY nginx/default.conf /etc/nginx/conf.d/
 
 # Install uWSGI
 RUN set -ex \
