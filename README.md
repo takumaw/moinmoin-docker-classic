@@ -1,7 +1,11 @@
 # MoinMoin Docker Image
+
+(C)2017 WATANABE Takuma takumaw@sfo.kuramae.ne.jp
+
 ## What is MoinMoin?
 
-MoinMoin is a free and open source wiki engine implemented in Python, which runs on a web hosting service.
+MoinMoin is a free and open source wiki engine implemented in Python, with a large community of users.
+See https://moinmo.in/ for more details.
 
 ## Usage
 
@@ -10,7 +14,7 @@ $ docker run -p 8080:80 takumaw/moinmoin
 ```
 You can now access your instance via http://localhost:8080 in your browser.
 
-You can also use with docker-compose, i.e.
+You can also use the image with docker-compose, for example:
 
 ```
 version: '3.1'
@@ -30,7 +34,7 @@ services:
 
 ## Image structure and configuration
 
-This image has a MoinMoin setup with Nginx and uWSGI, run by supervisord.
+This image has a MoinMoin setup with Nginx and uWSGI, run by Supervisord.
 
 (See also: https://moinmo.in/HowTo/NginxWithUwsgi )
 
